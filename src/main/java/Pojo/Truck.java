@@ -1,18 +1,18 @@
 package Pojo;
 
-import enums.CarBody;
+import enums.LoadCapacity;
 import enums.VehicleType;
 
 import javax.annotation.PostConstruct;
 import java.util.Objects;
 
-public class Car extends Transport {
-    private CarBody carBody;
+public class Truck extends Transport {
+    private LoadCapacity loadCapacity;
     private VehicleType vehicleType;
 
-    public Car(String brand, String model, double engineVolume, CarBody carBody, VehicleType vehicleType) {
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity, VehicleType vehicleType) {
         super(brand, model, engineVolume);
-        this.carBody = carBody;
+        this.loadCapacity = loadCapacity;
         this.vehicleType = vehicleType;
     }
 
@@ -21,12 +21,12 @@ public class Car extends Transport {
         System.out.println(getVehicleType() + " готов к работе");
     }
 
-    public CarBody getCarBody() {
-        return carBody;
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
     }
 
-    public void setCarBody(CarBody carBody) {
-        this.carBody = carBody;
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     public VehicleType getVehicleType() {
@@ -39,8 +39,8 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Car{" +
-                carBody +
+        return "Truck{" +
+                loadCapacity +
                 ", " + vehicleType +
                 "} " + super.toString();
     }
@@ -48,13 +48,13 @@ public class Car extends Transport {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Car car)) return false;
+        if (!(o instanceof Truck truck)) return false;
         if (!super.equals(o)) return false;
-        return getCarBody() == car.getCarBody() && getVehicleType() == car.getVehicleType();
+        return getLoadCapacity() == truck.getLoadCapacity() && getVehicleType() == truck.getVehicleType();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCarBody(), getVehicleType());
+        return Objects.hash(super.hashCode(), getLoadCapacity(), getVehicleType());
     }
 }
