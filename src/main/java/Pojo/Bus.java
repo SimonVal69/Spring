@@ -3,6 +3,7 @@ package Pojo;
 import enums.Capacity;
 import enums.VehicleType;
 
+import javax.annotation.PostConstruct;
 import java.util.Objects;
 
 public class Bus extends Transport {
@@ -13,6 +14,11 @@ public class Bus extends Transport {
         super(brand, model, engineVolume);
         this.capacity = capacity;
         this.vehicleType = vehicleType;
+    }
+
+    @PostConstruct
+    private void init() {
+        System.out.println(getVehicleType() + " готов к работе");
     }
 
     public Capacity getCapacity() {

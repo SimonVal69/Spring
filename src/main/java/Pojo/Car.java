@@ -3,6 +3,7 @@ package Pojo;
 import enums.CarBody;
 import enums.VehicleType;
 
+import javax.annotation.PostConstruct;
 import java.util.Objects;
 
 public class Car extends Transport {
@@ -13,6 +14,11 @@ public class Car extends Transport {
         super(brand, model, engineVolume);
         this.carBody = carBody;
         this.vehicleType = vehicleType;
+    }
+
+    @PostConstruct
+    private void init() {
+        System.out.println(getVehicleType() + " готов к работе");
     }
 
     public CarBody getCarBody() {
